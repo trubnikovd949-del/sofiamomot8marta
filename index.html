@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С 8 Марта! 💐</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            min-height: 100vh;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Кнопка в виде цветов */
+        .flower-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 30px;
+            transition: transform 0.3s ease;
+            margin: 50px auto;
+            display: block;
+        }
+
+        .flower-button:hover {
+            transform: scale(1.1);
+        }
+
+        .flower-emoji {
+            font-size: 80px;
+            display: block;
+        }
+
+        .button-text {
+            font-size: 24px;
+            color: #d63384;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* Открытка */
+        .card {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card h1 {
+            color: #d63384;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+
+        /* Видео без плеера */
+        .video-container {
+            width: 100%;
+            margin: 30px 0;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+            pointer-events: none;
+        }
+
+        /* Декоративные элементы */
+        .decorations {
+            font-size: 40px;
+            margin: 20px 0;
+        }
+
+        .signature {
+            font-style: italic;
+            color: #d63384;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 600px) {
+            .card {
+                padding: 25px;
+            }
+            .card h1 {
+                font-size: 28px;
+            }
+            .flower-emoji {
+                font-size: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Кнопка в виде цветов -->
+        <button class="flower-button" onclick="showCard()">
+            <span class="flower-emoji">💐🌸🌺</span>
+            <div class="button-text">Нажми меня!</div>
+        </button>
+
+        <!-- Открытка -->
+        <div class="card" id="greetingCard">
+            <div class="decorations">🌷🌹💕🌹🌷</div>
+            
+            <h1>С 8 Марта, любовь моя! 💖</h1>
+            
+            <div class="video-container">
+                <!-- ЗАМЕНИТЕ 'your-video.mp4' НА ИМЯ ВАШЕГО ФАЙЛА -->
+                <video id="greetingVideo" autoplay muted loop playsinline>
+                    <source src="Спрайт-0006.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <p>
+                Ты — самое прекрасное создание на свете! 
+                Пусть каждый твой день будет наполнен радостью, 
+                улыбками и цветами! 🌸
+            </p>
+
+            <p>
+                Желаю тебе бесконечного счастья, 
+                любви, вдохновения и чтобы все мечты сбывались! 
+                Ты заслуживаешь всего самого лучшего! ✨
+            </p>
+
+            <div class="decorations">🦋🌻🎀🌻🦋</div>
+
+            <p class="signature">
+                С любовью, твоя Сонько 💕
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showCard() {
+            const card = document.getElementById('greetingCard');
+            const video = document.getElementById('greetingVideo');
+            
+            // Показываем открытку
+            card.style.display = 'block';
+            
+            // Запускаем видео с замедлением в 2 раза
+            video.playbackRate = 0.5;
+            video.play();
+            
+            // Прокручиваем к открытке
+            card.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Обработка ошибок загрузки видео
+        document.getElementById('greetingVideo').addEventListener('error', function() {
+            console.log('Видео не найдено. Проверьте путь к файлу.');
+        });
+    </script>
+</body>
+</html>
